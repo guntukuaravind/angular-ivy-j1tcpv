@@ -1,0 +1,49 @@
+<div id="app">
+<nav class="navbar navbar-expand navbar-blue bg-blue" style="background-color: rgba(187, 20, 151, 0.856);">
+<a class="navbar-item">
+<img src="https://png.pngtree.com/template/20190928/ourmid/pngtree-gold-furniture-lamp-chair-interior-logo-design-template-inspirat-image_312127.jpg" style="width: 200px; height: 200px">
+</a>
+  <a href="#" class="navbar-brand">DASHBOARD</a>
+  <ul class="navbar-nav mr-auto" routerLinkActive="active">
+    <li class="nav-item">
+      <a href="/home" class="nav-link" routerLink="home">Home </a>
+    </li>
+    <li class="nav-item">
+      <a href="/admin-control" class="nav-link" routerLink="admin-control">Admin Register </a>
+    </li>
+   
+    
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+    </li>
+    <li class="nav-item" *ngIf="showModeratorBoard">
+      <a href="/pro" class="nav-link" routerLink="pro">Product Board</a>
+    </li>
+    <li class="nav-item">
+      <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+    </li>
+  </ul>
+  
+  <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+    <li class="nav-item">
+      <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a href="/login" class="nav-link" routerLink="login">Login</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+    </li>
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+</div>
