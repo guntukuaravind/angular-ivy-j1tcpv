@@ -3,10 +3,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <div style="width: 400px; margin: auto;">
-  <body>
     <div *ngIf="currentProduct" class="edit-form">
-     
-      <h4>Product</h4>
+      <h4>Book</h4>
       <form>
         <div class="form-group">
           <label for="title">Title</label>
@@ -19,17 +17,17 @@
           />
         </div>
         <div class="form-group">
-          <label for="brand">Brand</label>
+          <label for="description">Description</label>
           <input
             type="text"
             class="form-control"
-            id="brand"
-            [(ngModel)]="currentProduct.brand"
-            name="brand"
+            id="description"
+            [(ngModel)]="currentProduct.description"
+            name="description"
           />
         </div>
         <div class="form-group">
-            <label for="quantity">Quantity</label>
+            <label for="quantity">quantity</label>
             <input
               type="text"
               class="form-control"
@@ -57,8 +55,7 @@
   
     <div *ngIf="!currentProduct">
       <br />
-      <p>Cannot access this Product...</p>
+      <p>Cannot access this Book...</p>
     </div>
-  </body>
   </div>
 
