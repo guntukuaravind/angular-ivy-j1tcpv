@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="list row" style="height: 700px;" >
+    <div class="col-md-8" style="height: 10px;">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="What are you looking for?"
+          [(ngModel)]="title"/>
+          <br>
+        <div class="input-group-append">
+          <br>
+          <button
+          style="background-color: rgba(220, 20, 60, 0.89); color: wheat;"
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4 style="font-style: italic;">Get More Products Here!!!!</h4>
+      <br />
+      
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let product of products; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveProduct(product, i)"
+        >
+          {{ product.title }}
+        </li>
+      </ul>
+  
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentProduct">
+        <h4 style="font-style: italic;">See Your Product</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentProduct.title }}
+        </div>
+        <div>
+          <label><strong>Brand:</strong></label>
+          {{ currentProduct.brand }}
+        </div>
+        <div>
+            <label><strong>quantity:</strong></label>
+            {{ currentProduct.quantity }}
+          </div>
+
+          <a class="badge badge-warning" routerLink="/products/{{ currentProduct.id }}">
+            Add To Cart
+          </a>
+  
+        
+      </div>
+  
+      <div *ngIf="!currentProduct">
+       
+      </div>
+    </div>
+  </div>
+
+

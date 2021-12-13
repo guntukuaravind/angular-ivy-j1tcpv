@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div style="width: 400px; margin: auto;">
+  <body>
+    <div *ngIf="currentProduct" class="edit-form">
+     
+      <h4>Product</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentProduct.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            id="brand"
+            [(ngModel)]="currentProduct.brand"
+            name="brand"
+          />
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+              type="text"
+              class="form-control"
+              id="quantity"
+              [(ngModel)]="currentProduct.quantity"
+              name="quantity"
+            />
+          </div>
+  
+        </form>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteProduct()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success"
+        (click)="updateProduct()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentProduct">
+      <br />
+      <p>Cannot access this Product...</p>
+    </div>
+  </body>
+  </div>
+
